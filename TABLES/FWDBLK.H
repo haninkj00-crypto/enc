@@ -1,0 +1,17 @@
+extern const CP949Entry ET_FAR cp949_forward_0[];
+extern const CP949Entry ET_FAR cp949_forward_1[];
+extern const CP949Entry ET_FAR cp949_forward_2[];
+extern const CP949Entry ET_FAR cp949_forward_3[];
+extern const CP949Entry ET_FAR cp949_forward_4[];
+extern const CP949Entry ET_FAR cp949_forward_5[];
+extern const CP949Entry ET_FAR cp949_forward_6[];
+extern const CP949Entry ET_FAR cp949_forward_7[];
+extern const CP949Entry ET_FAR cp949_forward_8[];
+extern const CP949Entry ET_FAR cp949_forward_9[];
+extern const CP949Entry ET_FAR cp949_forward_10[];
+extern const CP949Entry ET_FAR cp949_forward_11[];
+extern const CP949Entry ET_FAR cp949_forward_12[];
+extern const CP949Entry ET_FAR cp949_forward_13[];
+extern const CP949Entry ET_FAR cp949_forward_14[];
+extern const CP949Entry ET_FAR cp949_forward_15[];
+extern const CP949Entry ET_FAR cp949_forward_16[];

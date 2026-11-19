@@ -1,0 +1,96 @@
+EncodingTool DOS target update
+==============================
+
+Selected compiler: Microsoft C 6.0a, native 16-bit DOS compiler.
+Target executable: 16-bit real-mode DOS ENC.EXE.
+Host requirement: Microsoft C 6.0 documentation lists DOS 3.0+ and an 8088 CPU minimum.
+Compiler execution: 16-bit DOS; no 32-bit DOS extender / DPMI requirement.
+
+Compiler options in BUILD.BAT:
+  /AL   Large memory model (far code and far data pointers)
+  /G0   8086/8088 instruction set
+  /Od   Disable optimization during initial port validation
+  /Ze   Enable Microsoft language extensions, including _far
+  /Lr   Select real-mode DOS C runtime library names
+  /c    Compile only; link separately
+  /DET_DOS16  Enable DOS file handling and _far table declarations
+
+CP949 tables remain split into 17 forward and 17 reverse objects, each
+with at most 1024 entries. A full 1024-entry object is approximately
+6 KiB with 2-byte alignment (at most 8 KiB with 4-byte alignment). This also reduces the
+compiler's per-translation-unit memory demand compared with the former
+4096-entry chunks.
+
+The linker response file uses plus-sign continuation for its long object
+module list, as required by Microsoft LINK response-file syntax.
+
+Validation status:
+- Linux GCC C89 build and codec/recovery self-tests pass.
+- DOS 8.3 filename and BUILD.BAT source/object list audits pass.
+- MSC 6.0a compilation, LINK, and real-mode DOS execution have not yet
+  been run because the compiler is not installed in this environment.
+
+Important distinction:
+Microsoft C 6.0a is a 16-bit DOS development tool. /AL selects the
+16-bit large memory model, while /Lr selects the real-mode DOS runtime.
+Neither option enables 32-bit protected mode.
+
+Command-line update
+-------------------
+  Switches use DOS slash syntax and are ASCII case-insensitive.
+  /F and /T are required; /I and /O are optional.
+  Missing /I selects binary stdin; missing /O selects binary stdout.
+  /REPLACE or /ERRORS REPLACE substitutes malformed input and
+  unrepresentable characters. Strict rejection is the default; /STRICT
+  or /ERRORS STRICT selects it explicitly.
+  File names are passed unchanged; a leading hyphen is not a switch.
+  Diagnostics and replacement counts are written to stderr.
+
+Standard stream handling
+------------------------
+  DOS stdin/stdout are initially text-mode streams in MSC 6.0. FILEIO.C
+  calls setmode(fileno(stdin/stdout), O_BINARY) when those streams are
+  selected, preventing CR/LF translation and Ctrl-Z text EOF handling.
+  The setmode calls are compiled only for ET_DOS16.
+
+Replacement policy
+------------------
+  Invalid source subsequences are decoded as U+FFFD. If the destination
+  encoding cannot represent U+FFFD, '?' is emitted. A valid Unicode
+  scalar not representable in the destination follows the same fallback.
+  Replacement counters are retained in ConversionError and reported on
+  stderr after successful conversion.
+
+
+Command-line and stream verification
+------------------------------------
+  The current command parser uses DOS slash switches: /F, /T, /I, /O,
+  /MODE, /MISINTERPRET, /REAL, /REPLACE, /STRICT, /ERRORS, /TEST, /HELP.
+  Switch names and encoding/mode/policy values are ASCII case-insensitive.
+  File path values are passed unchanged to the runtime. A leading hyphen is
+  not interpreted as a switch.
+
+  /F and /T are required. /I and /O are optional independently. Omitted /I
+  selects stdin; omitted /O selects stdout. DOS standard streams are switched
+  to binary mode with MSC 6.0 runtime setmode(fileno(handle), O_BINARY).
+
+  Strict is the default. /REPLACE or /ERRORS REPLACE substitutes malformed
+  source subsequences with U+FFFD, falling back to '?' when the destination
+  cannot encode U+FFFD. Valid but unrepresentable Unicode scalars use the
+  same output fallback. /STRICT or /ERRORS STRICT selects strict rejection.
+  Diagnostics and replacement totals go to stderr; invalid byte errors
+  identify the source byte offset and up to four offending bytes.
+
+Additional validation
+---------------------
+  - GCC C89 build with -Wall -Wextra -Werror -pedantic: passed.
+  - Built-in codec, CP949 table, malformed-input, replacement, and recovery
+    regression tests: passed.
+  - CLI tests: case-insensitive switches/encodings; all four file/stdio
+    input-output combinations; hyphen-leading and literal-hyphen filenames;
+    strict failure and destination preservation; replace output and summary;
+    unsupported encoding; unrepresentable output; recovery; required BOM;
+    and byte offsets including a skipped input BOM: passed.
+  - MSC 6.0a compiler/linker and real DOS execution remain to be verified
+    on the target DOS installation. Host GCC tests are not a substitute for
+    that native build.

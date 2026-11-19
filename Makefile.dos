@@ -1,0 +1,4 @@
+# Microsoft C 6.0a native 16-bit DOS target.
+# Invoke BUILD.BAT from the MSC 6.0a DOS environment.
+all:
+	BUILD.BAT

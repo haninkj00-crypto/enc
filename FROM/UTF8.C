@@ -1,0 +1,3 @@
+#include "../CODEC.H"
+int codec_decode_utf8(const unsigned char *s,unsigned int n,unsigned int *used,U32 *c)
+{ unsigned int a,b,d,e; if(!n)return 0; a=s[0]; if(a<0x80){*used=1;*c=a;return 1;} if(a>=0xC2&&a<=0xDF){if(n<2)return 0;b=s[1];if((b&0xC0)!=0x80)return -1;*c=((U32)(a&31)<<6)|(b&63);*used=2;return 1;} if(a>=0xE0&&a<=0xEF){if(n<3)return 0;b=s[1];d=s[2];if((b&0xC0)!=0x80||(d&0xC0)!=0x80||(a==0xE0&&b<0xA0)||(a==0xED&&b>=0xA0))return -1;*c=((U32)(a&15)<<12)|((U32)(b&63)<<6)|(d&63);*used=3;return 1;} if(a>=0xF0&&a<=0xF4){if(n<4)return 0;b=s[1];d=s[2];e=s[3];if((b&0xC0)!=0x80||(d&0xC0)!=0x80||(e&0xC0)!=0x80||(a==0xF0&&b<0x90)||(a==0xF4&&b>0x8F))return -1;*c=((U32)(a&7)<<18)|((U32)(b&63)<<12)|((U32)(d&63)<<6)|(e&63);*used=4;return 1;} return -1; }

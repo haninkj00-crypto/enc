@@ -1,0 +1,17 @@
+extern const CP949ReverseEntry ET_FAR cp949_reverse_0[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_1[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_2[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_3[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_4[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_5[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_6[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_7[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_8[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_9[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_10[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_11[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_12[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_13[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_14[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_15[];
+extern const CP949ReverseEntry ET_FAR cp949_reverse_16[];

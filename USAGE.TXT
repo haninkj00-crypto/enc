@@ -1,0 +1,85 @@
+ENC - DOS encoding converter
+============================
+
+Syntax
+------
+  ENC /F FROM /T TO [/I INPUT] [/O OUTPUT] [/REPLACE]
+  ENC /F FROM /T TO [/I INPUT] [/O OUTPUT] /ERRORS STRICT|REPLACE
+  ENC /F FROM /T TO /MODE RECOVERY /MISINTERPRET CP437 /REAL CP949
+  ENC /TEST
+
+Examples
+--------
+  ENC /F CP949 /T UTF-8 /I IN.TXT /O OUT.TXT
+  ENC /F UTF-8 /T CP949 /I IN.TXT /O OUT.TXT /REPLACE
+  TYPE IN.TXT | ENC /F CP949 /T UTF-8 > OUT.TXT
+  ENC /F CP949 /T UTF-8 /I IN.TXT > OUT.TXT
+  ENC /F CP949 /T UTF-8 /O OUT.TXT < IN.TXT
+  ENC /F UTF-8 /T UTF-8 /MODE RECOVERY /MISINTERPRET CP437 /REAL CP949
+
+Required arguments
+------------------
+  /F or /FROM      Input encoding.
+  /T or /TO        Output encoding.
+
+Optional file arguments
+-----------------------
+  /I or /INPUT     Input file. If omitted, read standard input.
+  /O or /OUTPUT    Output file. If omitted, write standard output.
+
+  If both are omitted, ENC works as a filter. DOS redirection and pipes
+  can be used. Standard streams are switched to binary mode.
+
+Error policy
+------------
+  Strict mode is the default. Invalid input bytes, a missing required BOM,
+  or a character that cannot be represented in the output encoding causes
+  an error and a nonzero exit status.
+
+  /REPLACE         Replace invalid input and unrepresentable characters.
+  /STRICT          Explicitly select strict mode.
+  /ERRORS REPLACE  Same as /REPLACE.
+  /ERRORS STRICT   Same as /STRICT.
+
+  Replacement of invalid input uses U+FFFD. If the output encoding cannot
+  represent U+FFFD, a question mark (?) is written instead. A valid Unicode
+  character that is not representable in the output encoding also becomes
+  U+FFFD or ?, using the same fallback. Recovery-stage invalid bytes are
+  replaced too. Replacement counts are printed to standard error.
+
+Diagnostics
+-----------
+  Errors are written to standard error, not standard output. Invalid input
+  diagnostics include the byte offset and up to four offending bytes in
+  hexadecimal. Unsupported input/output encodings are identified by name.
+
+  A named output file is installed only after successful conversion. In
+  strict mode, an existing output file is preserved after conversion error.
+  Standard output cannot be rolled back after bytes have been written.
+
+Case handling
+-------------
+  Switches, encoding names, mode names, and error-policy values are
+  case-insensitive. Examples: /f, /From, cp949, Utf-8, replace.
+
+  File path arguments are passed as written; the program does not change
+  their letter case. A hyphen is not an option prefix. For example, /I -
+  means a file whose name is a single hyphen, if that file exists.
+
+Supported encodings
+-------------------
+  UTF-8          UTF-8-BOM
+  UTF-16LE       UTF-16LE-BOM
+  UTF-16BE       UTF-16BE-BOM
+  CP949          CP437          CP1252
+
+  A *-BOM input requires its corresponding BOM. A plain UTF-8/UTF-16 input
+  accepts and removes a matching BOM when present. A *-BOM output writes
+  the corresponding BOM.
+
+Exit codes
+----------
+  0   Success
+  1   Command-line syntax or option error
+  2   Unsupported input/output encoding
+  3+  File, stream, conversion, or output error (see diagnostic)

@@ -1,0 +1,575 @@
+
+ Start  Stop   Length Name                   Class
+ 00000H 01080H 01081H MAIN_TEXT              CODE
+ 01082H 01A60H 009DFH FILEIO_TEXT            CODE
+ 01A62H 01F0FH 004AEH ERROR_TEXT             CODE
+ 01F10H 02770H 00861H CONVERT_TEXT           CODE
+ 02772H 03543H 00DD2H RECOVERY_TEXT          CODE
+ 03544H 036FBH 001B8H REGISTRY_TEXT          CODE
+ 036FCH 04C0DH 01512H TEST_TEXT              CODE
+ 04C0EH 04CB7H 000AAH TABLES_TEXT            CODE
+ 04CB8H 04CB8H 00000H FWD00_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD01_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD02_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD03_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD04_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD05_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD06_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD07_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD08_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD09_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD10_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD11_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD12_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD13_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD14_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD15_TEXT             CODE
+ 04CB8H 04CB8H 00000H FWD16_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV00_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV01_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV02_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV03_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV04_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV05_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV06_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV07_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV08_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV09_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV10_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV11_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV12_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV13_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV14_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV15_TEXT             CODE
+ 04CB8H 04CB8H 00000H REV16_TEXT             CODE
+ 04CB8H 0514FH 00498H UTF8_TEXT              CODE
+ 05150H 0551BH 003CCH UTF16_TEXT             CODE
+ 0551CH 05784H 00269H CP949_TEXT             CODE
+ 05786H 05846H 000C1H CP437_TEXT             CODE
+ 05848H 0591EH 000D7H CP1252_TEXT            CODE
+ 05920H 079D4H 020B5H _TEXT                  CODE
+ 079E0H 079E1H 00002H EMULATOR_TEXT          CODE
+ 079E2H 079E2H 00000H C_ETEXT                ENDCODE
+ 079F0H 091EFH 01800H FWD007_DATA            FAR_DATA
+ 091F0H 0A9EFH 01800H FWD017_DATA            FAR_DATA
+ 0A9F0H 0C1EFH 01800H FWD027_DATA            FAR_DATA
+ 0C1F0H 0D9EFH 01800H FWD037_DATA            FAR_DATA
+ 0D9F0H 0F1EFH 01800H FWD047_DATA            FAR_DATA
+ 0F1F0H 109EFH 01800H FWD057_DATA            FAR_DATA
+ 109F0H 121EFH 01800H FWD067_DATA            FAR_DATA
+ 121F0H 139EFH 01800H FWD077_DATA            FAR_DATA
+ 139F0H 151EFH 01800H FWD087_DATA            FAR_DATA
+ 151F0H 169EFH 01800H FWD097_DATA            FAR_DATA
+ 169F0H 181EFH 01800H FWD107_DATA            FAR_DATA
+ 181F0H 199EFH 01800H FWD117_DATA            FAR_DATA
+ 199F0H 1B1EFH 01800H FWD127_DATA            FAR_DATA
+ 1B1F0H 1C9EFH 01800H FWD137_DATA            FAR_DATA
+ 1C9F0H 1E1EFH 01800H FWD147_DATA            FAR_DATA
+ 1E1F0H 1F9EFH 01800H FWD157_DATA            FAR_DATA
+ 1F9F0H 2097FH 00F90H FWD167_DATA            FAR_DATA
+ 20980H 2217FH 01800H REV007_DATA            FAR_DATA
+ 22180H 2397FH 01800H REV017_DATA            FAR_DATA
+ 23980H 2517FH 01800H REV027_DATA            FAR_DATA
+ 25180H 2697FH 01800H REV037_DATA            FAR_DATA
+ 26980H 2817FH 01800H REV047_DATA            FAR_DATA
+ 28180H 2997FH 01800H REV057_DATA            FAR_DATA
+ 29980H 2B17FH 01800H REV067_DATA            FAR_DATA
+ 2B180H 2C97FH 01800H REV077_DATA            FAR_DATA
+ 2C980H 2E17FH 01800H REV087_DATA            FAR_DATA
+ 2E180H 2F97FH 01800H REV097_DATA            FAR_DATA
+ 2F980H 3117FH 01800H REV107_DATA            FAR_DATA
+ 31180H 3297FH 01800H REV117_DATA            FAR_DATA
+ 32980H 3417FH 01800H REV127_DATA            FAR_DATA
+ 34180H 3597FH 01800H REV137_DATA            FAR_DATA
+ 35980H 3717FH 01800H REV147_DATA            FAR_DATA
+ 37180H 3897FH 01800H REV157_DATA            FAR_DATA
+ 38980H 3990FH 00F90H REV167_DATA            FAR_DATA
+ 39910H 39910H 00000H EMULATOR_DATA          FAR_DATA
+ 39910H 39951H 00042H NULL                   BEGDATA
+ 39952H 3BA4BH 020FAH _DATA                  DATA
+ 3BA4CH 3BA4DH 00002H XIQC                   DATA
+ 3BA4EH 3BA5BH 0000EH DBDATA                 DATA
+ 3BA5CH 3BA69H 0000EH CDATA                  DATA
+ 3BA6AH 3BA6AH 00000H XIFB                   DATA
+ 3BA6AH 3BA6AH 00000H XIF                    DATA
+ 3BA6AH 3BA6AH 00000H XIFE                   DATA
+ 3BA6AH 3BA6AH 00000H XIB                    DATA
+ 3BA6AH 3BA6AH 00000H XI                     DATA
+ 3BA6AH 3BA6AH 00000H XIE                    DATA
+ 3BA6AH 3BA6AH 00000H XPB                    DATA
+ 3BA6AH 3BA6DH 00004H XP                     DATA
+ 3BA6EH 3BA6EH 00000H XPE                    DATA
+ 3BA6EH 3BA6EH 00000H XCB                    DATA
+ 3BA6EH 3BA6EH 00000H XC                     DATA
+ 3BA6EH 3BA6EH 00000H XCE                    DATA
+ 3BA6EH 3BA6EH 00000H XCFB                   DATA
+ 3BA6EH 3BA6EH 00000H XCF                    DATA
+ 3BA6EH 3BA6EH 00000H XCFE                   DATA
+ 3BA6EH 3BA7DH 00010H CONST                  CONST
+ 3BA7EH 3BA85H 00008H HDR                    MSG
+ 3BA86H 3BB5BH 000D6H MSG                    MSG
+ 3BB5CH 3BB5DH 00002H PAD                    MSG
+ 3BB5EH 3BB5EH 00001H EPAD                   MSG
+ 3BB60H 41BBFH 06060H _BSS                   BSS
+ 41BC0H 41BC0H 00000H XOB                    BSS
+ 41BC0H 41BC0H 00000H XO                     BSS
+ 41BC0H 41BC0H 00000H XOE                    BSS
+ 41BC0H 41DBFH 00200H c_common               BSS
+ 41DC0H 425BFH 00800H STACK                  STACK
+
+ Origin   Group
+ 3991:0   DGROUP
+
+  Address         Publics by Name
+
+ 3991:1E9A       STKHQQ
+ 0592:14D8       _close
+ 0584:0008       _codec_decode_cp1252
+ 0578:0006       _codec_decode_cp437
+ 0551:000C       _codec_decode_cp949
+ 0515:01DF       _codec_decode_utf16be
+ 0515:01A8       _codec_decode_utf16le
+ 04CB:0008       _codec_decode_utf8
+ 0584:0072       _codec_encode_cp1252
+ 0578:005A       _codec_encode_cp437
+ 0551:014E       _codec_encode_cp949
+ 0515:0398       _codec_encode_utf16be
+ 0515:0364       _codec_encode_utf16le
+ 04CB:02D8       _codec_encode_utf8
+ 0354:00DC       _codec_find_decoder
+ 0354:014C       _codec_find_encoder
+ 0354:0004       _codec_name_equal
+ 036F:000C       _codec_self_test
+ 01A6:03EC       _conversion_encode
+ 01A6:017F       _conversion_error_bytes
+ 01A6:0091       _conversion_error_clear
+ 01A6:021F       _conversion_error_scalar
+ 01A6:011E       _conversion_error_simple
+ 036F:0AFC       _conversion_file_test
+ 01A6:0394       _conversion_incomplete_consume
+ 01A6:0295       _conversion_input_error_name
+ 01A6:033C       _conversion_invalid_consume
+ 01F1:0000       _convert_file
+ 0277:0413       _convert_file_recovery
+ 3991:198E       _cp1252_to_unicode
+ 3991:158E       _cp437_to_unicode
+ 079F:0000       _cp949_forward_0
+ 091F:0000       _cp949_forward_1
+ 169F:0000       _cp949_forward_10
+ 181F:0000       _cp949_forward_11
+ 199F:0000       _cp949_forward_12
+ 1B1F:0000       _cp949_forward_13
+ 1C9F:0000       _cp949_forward_14
+ 1E1F:0000       _cp949_forward_15
+ 1F9F:0000       _cp949_forward_16
+ 0A9F:0000       _cp949_forward_2
+ 0C1F:0000       _cp949_forward_3
+ 0D9F:0000       _cp949_forward_4
+ 0F1F:0000       _cp949_forward_5
+ 109F:0000       _cp949_forward_6
+ 121F:0000       _cp949_forward_7
+ 139F:0000       _cp949_forward_8
+ 151F:0000       _cp949_forward_9
+ 04C0:000E       _cp949_forward_at
+ 3991:1E16       _cp949_forward_count
+ 2098:0000       _cp949_reverse_0
+ 2218:0000       _cp949_reverse_1
+ 2F98:0000       _cp949_reverse_10
+ 3118:0000       _cp949_reverse_11
+ 3298:0000       _cp949_reverse_12
+ 3418:0000       _cp949_reverse_13
+ 3598:0000       _cp949_reverse_14
+ 3718:0000       _cp949_reverse_15
+ 3898:0000       _cp949_reverse_16
+ 2398:0000       _cp949_reverse_2
+ 2518:0000       _cp949_reverse_3
+ 2698:0000       _cp949_reverse_4
+ 2818:0000       _cp949_reverse_5
+ 2998:0000       _cp949_reverse_6
+ 2B18:0000       _cp949_reverse_7
+ 2C98:0000       _cp949_reverse_8
+ 2E18:0000       _cp949_reverse_9
+ 04C0:0063       _cp949_reverse_at
+ 3991:1E1A       _cp949_reverse_count
+ 3991:2250       _edata
+ 3991:84B0       _end
+ 3991:1E81       _environ
+ 3991:1E58       _errno
+ 0592:01D5       _exit
+ 0592:0634       _fclose
+ 0592:0E62       _fflush
+ 0592:14B6       _fgetc
+ 0592:14AE       _fgetchar
+ 0592:0EE2       _flushall
+ 0592:072E       _fopen
+ 0592:074A       _fprintf
+ 0592:1486       _fputc
+ 0592:147E       _fputchar
+ 0592:078A       _fread
+ 0592:19B6       _free
+ 0592:08FC       _fwrite
+ 0592:14B6       _getc
+ 0592:14AE       _getchar
+ 0108:0851       _io_finish_pair
+ 0108:03BE       _io_input_bom
+ 0108:06B7       _io_open_pair
+ 0108:02FC       _io_output_bom
+ 0108:02BA       _io_write_all
+ 0592:1D70       _itoa
+ 0592:14F8       _lseek
+ 0000:076F       _main
+ 0592:19B0       _malloc
+ 0592:1F74       _memcmp
+ 0592:1FD0       _memcpy
+ 0592:1EAA       _memmove
+ 0592:158C       _open
+ 0592:1486       _putc
+ 0592:147E       _putchar
+ 0592:1DB8       _puts
+ 0592:173E       _read
+ 036F:04C7       _recovery_file_test
+ 0592:20A6       _remove
+ 0592:2092       _rename
+ 0592:1E42       _setmode
+ 0592:1572       _sopen
+ 0592:199C       _stackavail
+ 0592:1C76       _strcat
+ 0592:1CF2       _strcmp
+ 0592:1CBC       _strcpy
+ 0592:1D1C       _strlen
+ 0592:1D34       _strncmp
+ 0592:20A6       _unlink
+ 0592:183C       _write
+ 3991:1E96       __aaltstkovr
+ 3991:1E3C       __acfinfo
+ 0000:9876  Abs  __acrtmsg
+ 0000:9876  Abs  __acrtused
+ 0000:D6D6  Abs  __aDBdoswp
+ 3991:1E92       __adbgmsg
+ 3991:1E20       __aexit_rtn
+ 0592:1D8C       __aFahdiff
+ 0592:02C0       __aFchkstk
+ 0000:1000  Abs  __AHINCR
+ 0000:000C  Abs  __AHSHIFT
+ 3991:1E4A       __aintdiv
+ 3991:211C       __amblksiz
+ 0592:00EB       __amsg_exit
+ 3991:0042       __anullsize
+ 3991:1E38       __aseghi
+ 3991:1E3A       __aseglo
+ 3991:1E22       __asizds
+ 3991:213A       __asizeC
+ 3991:213B       __asizeD
+ 0592:0010       __astart
+ 3991:1E1E       __atopsp
+ 3991:82B0       __bufin
+ 0592:01E4       __cexit
+ 3991:211E       __cfltcvt_tab
+ 3991:1EB8       __cflush
+ 3991:1E8A       __child
+ 0592:02C0       __chkstk
+ 0592:0110       __cinit
+ 0592:00DB       __cintDIV
+ 0592:202E       __cltoasub
+ 0592:0258       __ctermsub
+ 0592:172D       __cXENIXtoDOSmode
+ 0592:203B       __cxtoa
+ 0592:01EE       __c_exit
+ 0592:010D       __dataseg
+ 3991:1E63       __doserrno
+ 0592:05DE       __dosret0
+ 0592:05F3       __dosretax
+ 0592:05E6       __dosreturn
+ 3991:1E60       __dosvermajor
+ 3991:1E61       __dosverminor
+ 079E:0000       __EmDataSeg
+ 0592:01DC       __exit
+ 3991:1E4E       __fac
+ 0592:19BC       __ffree
+ 0592:0298       __FF_MSGBANNER
+ 3991:210E       __fheap
+ 0592:0A94       __filbuf
+ 0592:1C12       __findlast
+ 0592:0B30       __flsbuf
+ 0592:19CF       __fmalloc
+ 3991:210C       __fmode
+ 3991:214E       __fpinit
+ 0592:02BA       __fptrap
+ 0592:0C1C       __freebuf
+ 0592:06FA       __fsopen
+ 0592:0E19       __ftbuf
+ 0592:0C54       __getbuf
+ 0592:1430       __getstream
+ 0592:1B32       __growseg
+ 0592:1BC1       __incseg
+ 0592:1A4C       __initseg
+ 3991:1E8D       __intno
+ 3991:1EBA       __iob
+ 3991:1FAA       __iob2
+ 3991:210C       __iomode
+ 3991:209A       __lastiob
+ 0592:1A80       __linkseg
+ 0592:0600       __maperror
+ 0592:05B8       __myalloc
+ 0592:1C32       __newseg
+ 3991:1E65       __nfile
+ 3991:1E24       __nheap_desc
+ 0592:0556       __NMSG_TEXT
+ 0592:0581       __NMSG_WRITE
+ 0592:02E4       __nullcheck
+ 0592:0CA0       __openfile
+ 3991:1E63       __oserr
+ 3991:1E67       __osfile
+ 3991:1E60       __osmajor
+ 3991:1E61       __osminor
+ 3991:1E62       __osmode
+ 3991:1E60       __osversion
+ 0592:0F46       __output
+ 3991:1E8C       __ovlflag
+ 3991:1E8E       __ovlvec
+ 3991:1E85       __pgmptr
+ 3991:1E5E       __psp
+ 3991:1E5C       __pspadr
+ 0592:1AB6       __searchseg
+ 0592:0308       __setargv
+ 0592:04B6       __setenvp
+ 3991:2138       __sigintoff
+ 3991:2136       __sigintseg
+ 0592:0D98       __stbuf
+ 3991:1E5A       __umaskval
+ 3991:2144       ___aDBexit
+ 3991:214A       ___aDBptrchk
+ 3991:2142       ___aDBrterr
+ 3991:2140       ___aDBswpchk
+ 3991:213E       ___aDBswpflg
+ 3991:1E7B       ___argc
+ 3991:1E7D       ___argv
+ 3991:213C       ___qczrinit
+
+  Address         Publics by Value
+
+ 0000:000C  Abs  __AHSHIFT
+ 0000:076F       _main
+ 0000:1000  Abs  __AHINCR
+ 0108:02BA       _io_write_all
+ 0108:02FC       _io_output_bom
+ 0108:03BE       _io_input_bom
+ 0108:06B7       _io_open_pair
+ 0108:0851       _io_finish_pair
+ 01A6:0091       _conversion_error_clear
+ 01A6:011E       _conversion_error_simple
+ 01A6:017F       _conversion_error_bytes
+ 01A6:021F       _conversion_error_scalar
+ 01A6:0295       _conversion_input_error_name
+ 01A6:033C       _conversion_invalid_consume
+ 01A6:0394       _conversion_incomplete_consume
+ 01A6:03EC       _conversion_encode
+ 01F1:0000       _convert_file
+ 0277:0413       _convert_file_recovery
+ 0354:0004       _codec_name_equal
+ 0354:00DC       _codec_find_decoder
+ 0354:014C       _codec_find_encoder
+ 036F:000C       _codec_self_test
+ 036F:04C7       _recovery_file_test
+ 036F:0AFC       _conversion_file_test
+ 04C0:000E       _cp949_forward_at
+ 04C0:0063       _cp949_reverse_at
+ 04CB:0008       _codec_decode_utf8
+ 04CB:02D8       _codec_encode_utf8
+ 0515:01A8       _codec_decode_utf16le
+ 0515:01DF       _codec_decode_utf16be
+ 0515:0364       _codec_encode_utf16le
+ 0515:0398       _codec_encode_utf16be
+ 0551:000C       _codec_decode_cp949
+ 0551:014E       _codec_encode_cp949
+ 0578:0006       _codec_decode_cp437
+ 0578:005A       _codec_encode_cp437
+ 0584:0008       _codec_decode_cp1252
+ 0584:0072       _codec_encode_cp1252
+ 0592:0010       __astart
+ 0592:00DB       __cintDIV
+ 0592:00EB       __amsg_exit
+ 0592:010D       __dataseg
+ 0592:0110       __cinit
+ 0592:01D5       _exit
+ 0592:01DC       __exit
+ 0592:01E4       __cexit
+ 0592:01EE       __c_exit
+ 0592:0258       __ctermsub
+ 0592:0298       __FF_MSGBANNER
+ 0592:02BA       __fptrap
+ 0592:02C0       __chkstk
+ 0592:02C0       __aFchkstk
+ 0592:02E4       __nullcheck
+ 0592:0308       __setargv
+ 0592:04B6       __setenvp
+ 0592:0556       __NMSG_TEXT
+ 0592:0581       __NMSG_WRITE
+ 0592:05B8       __myalloc
+ 0592:05DE       __dosret0
+ 0592:05E6       __dosreturn
+ 0592:05F3       __dosretax
+ 0592:0600       __maperror
+ 0592:0634       _fclose
+ 0592:06FA       __fsopen
+ 0592:072E       _fopen
+ 0592:074A       _fprintf
+ 0592:078A       _fread
+ 0592:08FC       _fwrite
+ 0592:0A94       __filbuf
+ 0592:0B30       __flsbuf
+ 0592:0C1C       __freebuf
+ 0592:0C54       __getbuf
+ 0592:0CA0       __openfile
+ 0592:0D98       __stbuf
+ 0592:0E19       __ftbuf
+ 0592:0E62       _fflush
+ 0592:0EE2       _flushall
+ 0592:0F46       __output
+ 0592:1430       __getstream
+ 0592:147E       _putchar
+ 0592:147E       _fputchar
+ 0592:1486       _fputc
+ 0592:1486       _putc
+ 0592:14AE       _fgetchar
+ 0592:14AE       _getchar
+ 0592:14B6       _getc
+ 0592:14B6       _fgetc
+ 0592:14D8       _close
+ 0592:14F8       _lseek
+ 0592:1572       _sopen
+ 0592:158C       _open
+ 0592:172D       __cXENIXtoDOSmode
+ 0592:173E       _read
+ 0592:183C       _write
+ 0592:199C       _stackavail
+ 0592:19B0       _malloc
+ 0592:19B6       _free
+ 0592:19BC       __ffree
+ 0592:19CF       __fmalloc
+ 0592:1A4C       __initseg
+ 0592:1A80       __linkseg
+ 0592:1AB6       __searchseg
+ 0592:1B32       __growseg
+ 0592:1BC1       __incseg
+ 0592:1C12       __findlast
+ 0592:1C32       __newseg
+ 0592:1C76       _strcat
+ 0592:1CBC       _strcpy
+ 0592:1CF2       _strcmp
+ 0592:1D1C       _strlen
+ 0592:1D34       _strncmp
+ 0592:1D70       _itoa
+ 0592:1D8C       __aFahdiff
+ 0592:1DB8       _puts
+ 0592:1E42       _setmode
+ 0592:1EAA       _memmove
+ 0592:1F74       _memcmp
+ 0592:1FD0       _memcpy
+ 0592:202E       __cltoasub
+ 0592:203B       __cxtoa
+ 0592:2092       _rename
+ 0592:20A6       _unlink
+ 0592:20A6       _remove
+ 079E:0000       __EmDataSeg
+ 079F:0000       _cp949_forward_0
+ 091F:0000       _cp949_forward_1
+ 0000:9876  Abs  __acrtused
+ 0000:9876  Abs  __acrtmsg
+ 0A9F:0000       _cp949_forward_2
+ 0C1F:0000       _cp949_forward_3
+ 0000:D6D6  Abs  __aDBdoswp
+ 0D9F:0000       _cp949_forward_4
+ 0F1F:0000       _cp949_forward_5
+ 109F:0000       _cp949_forward_6
+ 121F:0000       _cp949_forward_7
+ 139F:0000       _cp949_forward_8
+ 151F:0000       _cp949_forward_9
+ 169F:0000       _cp949_forward_10
+ 181F:0000       _cp949_forward_11
+ 199F:0000       _cp949_forward_12
+ 1B1F:0000       _cp949_forward_13
+ 1C9F:0000       _cp949_forward_14
+ 1E1F:0000       _cp949_forward_15
+ 1F9F:0000       _cp949_forward_16
+ 2098:0000       _cp949_reverse_0
+ 2218:0000       _cp949_reverse_1
+ 2398:0000       _cp949_reverse_2
+ 2518:0000       _cp949_reverse_3
+ 2698:0000       _cp949_reverse_4
+ 2818:0000       _cp949_reverse_5
+ 2998:0000       _cp949_reverse_6
+ 2B18:0000       _cp949_reverse_7
+ 2C98:0000       _cp949_reverse_8
+ 2E18:0000       _cp949_reverse_9
+ 2F98:0000       _cp949_reverse_10
+ 3118:0000       _cp949_reverse_11
+ 3298:0000       _cp949_reverse_12
+ 3418:0000       _cp949_reverse_13
+ 3598:0000       _cp949_reverse_14
+ 3718:0000       _cp949_reverse_15
+ 3898:0000       _cp949_reverse_16
+ 3991:0042       __anullsize
+ 3991:158E       _cp437_to_unicode
+ 3991:198E       _cp1252_to_unicode
+ 3991:1E16       _cp949_forward_count
+ 3991:1E1A       _cp949_reverse_count
+ 3991:1E1E       __atopsp
+ 3991:1E20       __aexit_rtn
+ 3991:1E22       __asizds
+ 3991:1E24       __nheap_desc
+ 3991:1E38       __aseghi
+ 3991:1E3A       __aseglo
+ 3991:1E3C       __acfinfo
+ 3991:1E4A       __aintdiv
+ 3991:1E4E       __fac
+ 3991:1E58       _errno
+ 3991:1E5A       __umaskval
+ 3991:1E5C       __pspadr
+ 3991:1E5E       __psp
+ 3991:1E60       __osversion
+ 3991:1E60       __dosvermajor
+ 3991:1E60       __osmajor
+ 3991:1E61       __dosverminor
+ 3991:1E61       __osminor
+ 3991:1E62       __osmode
+ 3991:1E63       __doserrno
+ 3991:1E63       __oserr
+ 3991:1E65       __nfile
+ 3991:1E67       __osfile
+ 3991:1E7B       ___argc
+ 3991:1E7D       ___argv
+ 3991:1E81       _environ
+ 3991:1E85       __pgmptr
+ 3991:1E8A       __child
+ 3991:1E8C       __ovlflag
+ 3991:1E8D       __intno
+ 3991:1E8E       __ovlvec
+ 3991:1E92       __adbgmsg
+ 3991:1E96       __aaltstkovr
+ 3991:1E9A       STKHQQ
+ 3991:1EB8       __cflush
+ 3991:1EBA       __iob
+ 3991:1FAA       __iob2
+ 3991:209A       __lastiob
+ 3991:210C       __iomode
+ 3991:210C       __fmode
+ 3991:210E       __fheap
+ 3991:211C       __amblksiz
+ 3991:211E       __cfltcvt_tab
+ 3991:2136       __sigintseg
+ 3991:2138       __sigintoff
+ 3991:213A       __asizeC
+ 3991:213B       __asizeD
+ 3991:213C       ___qczrinit
+ 3991:213E       ___aDBswpflg
+ 3991:2140       ___aDBswpchk
+ 3991:2142       ___aDBrterr
+ 3991:2144       ___aDBexit
+ 3991:214A       ___aDBptrchk
+ 3991:214E       __fpinit
+ 3991:2250       _edata
+ 3991:82B0       __bufin
+ 3991:84B0       _end
+
+Program entry point at 0592:0010
