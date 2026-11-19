@@ -7,3 +7,5 @@ MS-DOS에서 인코딩 변환을 합니다.
 상자 그림이 뜨는 경우 `ENC /F FROM /T TO /MODE RECOVERY /MISINTERPRET CP437 /REAL CP949` 옵션이 도움이 됩니다.
 
 모든 인코딩 테이블을 내장해야 하는 특성 상, 한국어 이외에는 아직 거의 지원하지 못합니다.
+
+MS C 6a로 컴파일했습니다.
